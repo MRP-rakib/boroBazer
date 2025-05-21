@@ -1,8 +1,13 @@
 import React from 'react'
+import Container from './components/ui/Container'
 
 function Home() {
   return (
-    <div>Home</div>
+    <div>
+      <Container>Home</Container>
+      
+
+    </div>
   )
 }
 
