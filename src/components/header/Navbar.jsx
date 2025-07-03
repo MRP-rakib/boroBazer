@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
 import Container from '../ui/Container'
 import boroBazer from '../../assets/logo.svg'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { IoIosSearch } from "react-icons/io";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { IoIosArrowDown } from "react-icons/io";
-import { IoIosArrowUp } from "react-icons/io";
 import { RiMenu2Fill } from "react-icons/ri";
 import { AiOutlineHome } from "react-icons/ai";
 import { CiFacebook } from "react-icons/ci";
@@ -18,6 +16,7 @@ import { IoMdClose } from "react-icons/io";
 
 function Navbar() {
   const [hoverTrue, setHoverTrue] = useState(false)
+  const navigate = useNavigate()
   const handelHoverIn = () => {
     setHoverTrue(true)
   }
@@ -31,6 +30,11 @@ function Navbar() {
   const handelMenuClose = () => {
     setMenuOpen(false)
   }
+  const handelLoginOpen =()=>{
+    navigate('login')
+    
+  }
+
   return (
     <div>
       <Container>
@@ -94,12 +98,14 @@ function Navbar() {
               </span>
               <p>cart</p>
             </span>
-            <span className='flex items-center gap-1'>
+            
+            <span onClick={handelLoginOpen} className='flex items-center gap-1 cursor-pointer'>
               <span className='text-2xl'>
                 <FaRegCircleUser />
               </span>
               <p>sign in</p>
             </span>
+            
           </div>
         </nav>
       </Container>
